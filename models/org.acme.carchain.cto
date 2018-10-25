@@ -1,0 +1,56 @@
+namespace org.acme.carchain
+
+asset vehicle identified by vin {
+  o String vin
+  o vehicleDetails vehicleDetails
+  o String ownerID
+}
+
+concept vehicleDetails{
+
+  o String UniqueVehicleId
+  o String RegistrationNumber
+  o String ChasisNumber
+  o String EngineNumber
+  o DateTime ManufacturingYear
+  o String SeatingCapacity
+  o String TypeofBody
+  o String MakerName
+  o String VehicleClass
+
+}
+
+asset insuranceDetail identified by vin{
+  
+  o String vin
+  o String CurrentInsuranceNumber
+  o DateTime CurrentInsuranceIssue 
+  o DateTime CurrentInsuranceExpiry 
+  o String PreviousInsuranceNumber
+  o DateTime PreviousInsuranceIssue
+  o DateTime PreviousInsuranceExpiry 
+
+}
+
+concept insuranceDetails{
+  o DateTime CurrentInsuranceIssue 
+  o DateTime CurrentInsuranceExpiry 
+  o DateTime PreviousInsuranceNumber
+  o DateTime PreviousInsuranceIssue
+  o DateTime PreviousInsuranceExpiry 
+  o String PreviousInsuranceProvider
+}
+
+transaction insuranceProvider{
+  o String vin
+  o DateTime CurrentInsuranceIssue 
+  o DateTime CurrentInsuranceExpiry 
+  o String CurrentInsuranceNumber
+}
+
+transaction insuranceProviderUpdate{
+  o String vin
+  o DateTime CurrentInsuranceIssue 
+  o DateTime CurrentInsuranceExpiry 
+  o String CurrentInsuranceNumber
+}

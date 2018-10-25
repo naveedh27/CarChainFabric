@@ -1,0 +1,51 @@
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+
+
+
+
+rule RTOPermissionContactDetailsTrans{
+
+    description: "Permission to change only RTO Permission Contact Details Trans"
+    participant: "org.acme.carchain.participant.RTO"
+    operation: READ, CREATE, UPDATE
+    resource: "org.acme.carchain.**"
+    
+    action: ALLOW
+}
+
+
+rule PolicePermission{
+
+    description: "Permission to change only vehicleDetails"
+    participant: "org.acme.carchain.participant.Police"
+    operation: READ
+    resource: "org.acme.carchain.**"
+    action: ALLOW
+}
+
+rule InsurancePermission{
+
+    description: "Permission to change only InsuranceDetails"
+    participant: "org.acme.carchain.participant.Insurance"
+    operation: READ,UPDATE,CREATE
+    resource: "org.acme.carchain.**"
+    action: ALLOW
+    
+  
+}
+
+

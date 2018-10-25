@@ -1,0 +1,39 @@
+/**
+ * New query file
+ */
+
+query getAllVehicleInfo{
+  description: "Select all Vehicle Information"
+  statement:
+      SELECT org.acme.carchain.vehicle
+}
+
+query getAllVehicleInsuranceInfo{
+  description: "Select all Vehicle Insurance Information"
+  statement:
+      SELECT org.acme.carchain.insuranceDetail
+}
+
+
+query getVehicleDetailsAccToVin{
+  description: "Select all Vehicle Information of a Particular Vehicle"
+  statement:
+      SELECT org.acme.carchain.vehicle
+      WHERE (vin ==_$vin)
+}
+
+
+query getInsuranceDetailsAccToVin{
+  description: "Select all Insurance Information of a Particular Vehicle"
+  statement:
+      SELECT org.acme.carchain.insuranceDetail
+      WHERE (vin ==_$vin)
+}
+
+
+query getEndUserByUID{
+  description: "Select Participant with UID"
+  statement:
+        SELECT org.acme.carchain.participant.EndUser
+        WHERE (UID == _$uid)
+  }

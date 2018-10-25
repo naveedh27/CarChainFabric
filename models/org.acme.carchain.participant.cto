@@ -1,0 +1,47 @@
+namespace org.acme.carchain.participant
+
+
+participant RTO identified by rtoID{
+  o String rtoID
+  o String name
+}
+
+participant Police identified by PoliceID{
+  o String PoliceID
+  o String name
+}
+participant Insurance identified by InsuranceID{
+  
+  o String InsuranceID
+  o String name
+}
+
+participant EndUser identified by UID{
+  
+  o String UID
+  o contactDetails details
+  o String[] vinArray
+
+}
+
+concept contactDetails {
+  o String customer_name
+  o String Phone
+  o String emailId
+  o String country
+  o String state
+  o String city
+  o String street
+}
+
+
+transaction transferOwnership{
+  o String UID_Seller
+  o String UID_Buyer
+  o String vin
+}
+
+transaction assignOwnership{
+   o String vin
+   o String UID
+}
